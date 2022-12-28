@@ -4,7 +4,7 @@
 #include <Board.hpp>
 void main()
 {
-    LE::Point Field = { 500, 500 };
+    LE::Point Field = { 800, 500 }; // Создаю границы
     int RadiusBalls = 25;
     int Speed = 10;
     LE::Point Balls = { RadiusBalls,RadiusBalls };

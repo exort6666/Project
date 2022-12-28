@@ -1,22 +1,23 @@
 #pragma once
-#include <Ball.hpp>
 #include <Game.hpp>
-namespace LE //Создание именного пространства
+namespace LE 
 {
-	class Board //Создание класса 
+	class Board 
 	{
+		struct Point {
+			int x;
+			int y;
+		};
+	private:
+		sf::Sprite* m_sprite=nullptr;// Указатель спрайта доски
+		sf::Texture* m_texture =nullptr;// Указатель спрайта текстуры
+		Point m_p0; // Местоположение доски
 	public:
-		Board(){
-
-		}
-		sf::RectangleShape board;
-
-		void moveOfBoard()
-		{
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) board.setPosition(board.getPosition() + sf::Vector2f(-0.80, 0));
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) board.setPosition(board.getPosition() + sf::Vector2f(0.80, 0));
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) board.setPosition(board.getPosition() + sf::Vector2f(-0.80, 0));
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) board.setPosition(board.getPosition() + sf::Vector2f(0.80, 0));
-		}
+		Board(Point p0);
+		bool Setup();
+		sf::Sprite getSprite();
+		~Board();
+		sf::FloatRect GetRect();
+		void moveOfBoard();
 	};
 }
